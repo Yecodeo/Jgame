@@ -1,0 +1,96 @@
+/*
+      HEADER
+*/
+header{
+  background-color: #eeeeee;
+  margin: 0px;
+  height: 100px;
+}
+header h1 {
+  margin: 0px;
+  padding: 1.7%;
+}
+.title {
+      font-size: 3.5em;
+}
+/*
+  PLATFORM
+*/
+.platform {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 840px;
+    margin: 25px 0px;
+    background-color: #dddcff;
+}
+/*
+    CARDS
+*/
+
+.card {
+  transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+.flip {
+  margin: 10px;
+}
+.picture {
+  background-image: url(../images/cards.png);
+}
+
+/* hide back of pane during swap */
+
+.hiddens, .picture {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.hiddens {
+	z-index: 2;
+	transform: rotateY(0deg);
+  background-color:#aaaaaa;
+}
+.hiddens:hover {
+  background-color: #bfbcbc;
+  cursor: pointer;
+}
+/* back, initially hidden pane */
+.picture {
+	transform: rotateY(180deg);
+}
+.rotate {
+		transform: rotateY(180deg);
+}
+.win {
+		transform: rotateY(180deg);
+}
+
+.flip, .hiddens, .picture {
+	width: 100px;
+	height: 100px;
+}
+
+
+/*
+  progressbar
+*/
+
+.indic {
+    width: 833px;
+    background-color: #aaaaaa;
+    height: 20px;
+    margin: 30px 0px;
+}
+
+.progressbar {
+    background-color: #ff0000;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    transition: all 1s ease;
+}
