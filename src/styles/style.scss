@@ -1,13 +1,17 @@
 $transition: all 0.5s ease;
 $bg-color: #dddcff;
 $card-size: 150px;
-.card {
+
+@mixin transite {
     -webkit-transition: $transition;
     -moz-transition: $transition;
     -ms-transition: $transition;
     -o-transition: $transition;
     transition: $transition;
     transform-style: preserve-3d;
+}
+
+.carte {
     position: relative;
 }
 
@@ -21,7 +25,7 @@ $card-size: 150px;
 
 .hiddens,
 .picture {
-    // backface-visibility: hidden;
+    backface-visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -29,8 +33,7 @@ $card-size: 150px;
 
 /* front pane, placed above back */
 .hiddens {
-    z-index: 2;
-    transform: rotateY(0deg);
+
     background-color: #aaaaaa;
 }
 
@@ -40,8 +43,13 @@ $card-size: 150px;
 }
 
 /* back, initially hidden pane */
-.picture, .rotate, .win {
+.picture {
     transform: rotateY(180deg);
+}
+
+.rotate {
+    @include transite;
+    transform: rotateY(0deg);
 }
 
 .flip,

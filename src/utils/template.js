@@ -1,6 +1,6 @@
 export default function card(props) {
 	const flip = factory('div', ['m-1', 'flip']);
-	const c = factory('div', ['card']);
+	const c = factory('div', ['carte']);
 	const hidden =  factory('div', ['hiddens']); 
 	const picture = factory('div', ['picture', props]); 
 
