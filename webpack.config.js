@@ -8,8 +8,31 @@ module.exports = {
 	},
 	mode: 'development',
 	module: {
-		rules: [
-			{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+		rules: [{
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: 'babel-loader'
+		},
+		{
+			test: /\.css$/,
+			exclude: /node_modules/,
+			use: ['styles-loader','css-loader']
+		},
+		{
+			test: /\.scss$/,
+			exclude: /node_modules/,
+			use: [{
+				loader: 'sass-loader',
+				options: {
+					implementation: require('sass'),
+					sassOptions: {
+						fiber: require('fibers'),
+					},
+				},
+			},
+
+			],
+		},
 		]
 	}
 };

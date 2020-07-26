@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -27,9 +28,15 @@
   "homepage": "https://github.com/Yecodeo/Jgame#readme",
   "devDependencies": {
     "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-spread": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
+    "dart-sass": "^1.25.0",
+    "fibers": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
   },
