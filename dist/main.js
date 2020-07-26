@@ -94,7 +94,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_guess_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/guess.js */ \"./src/utils/guess.js\");\n\n$(document).ready(function () {\n  var game = new _utils_guess_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_guess_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/guess.js */ \"./src/utils/guess.js\");\n/* harmony import */ var _styles_fruits_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/fruits.scss */ \"./src/styles/fruits.scss\");\n\n\n$(document).ready(function () {\n  var game = new _utils_guess_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/styles/fruits.scss":
+/*!********************************!*\
+  !*** ./src/styles/fruits.scss ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"css/fruits.css\");\n\n//# sourceURL=webpack:///./src/styles/fruits.scss?");
 
 /***/ }),
 
