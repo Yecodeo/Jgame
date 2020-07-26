@@ -1,11 +1,6 @@
 import Swal from 'sweetalert2';
 
 $(document).ready(function () {
-    Swal.fire(
-        'Good job!',
-        'You clicked the button!',
-        'success'
-      )
 	/*******************************************************
    *      VARIABLES declaration section
  ******************************************************/

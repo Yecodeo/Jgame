@@ -1,3 +1,5 @@
 import Guess from 'utils/guess.js';
 
-var game = new Guess();
+$(document).ready(function () {
+	var game = new Guess();
+});
