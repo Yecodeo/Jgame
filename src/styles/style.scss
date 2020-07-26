@@ -1,0 +1,72 @@
+$transition: all 0.5s ease;
+$bg-color: #dddcff;
+$card-size: 150px;
+.card {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.platform {
+    background-color: $bg-color;
+}
+
+.picture {
+    background-image: url(../images/cards.png);
+}
+
+.hiddens,
+.picture {
+    // backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.hiddens {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background-color: #aaaaaa;
+}
+
+.hiddens:hover {
+    background-color: #bfbcbc;
+    cursor: pointer;
+}
+
+/* back, initially hidden pane */
+.picture, .rotate, .win {
+    transform: rotateY(180deg);
+}
+
+.flip,
+.hiddens,
+.picture {
+    width: $card-size;
+    height: $card-size;
+}
+
+
+/*
+    progressbar
+  */
+
+.indic {
+    width: 833px;
+    background-color: #aaaaaa;
+    height: 20px;
+    margin: 30px 0px;
+}
+
+.progressbar {
+    background-color: #ff0000;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    transition: all 1s ease;
+}

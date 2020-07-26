@@ -8,13 +8,6 @@ export default function card(props) {
 	c.append(hidden);
 	flip.append(c);
 	return flip;
-
-	// return `<div class="flip"> 
-	// <div class="card">
-	//     <div class="hiddens"></div>
-	//         <div id="" class="picture ${props}"></div>
-	//     </div>
-	// </div>`;
 }
 /**
  * create element and it class name
