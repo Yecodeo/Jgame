@@ -11,26 +11,40 @@ module.exports = {
 		rules: [{
 			test: /\.js$/,
 			exclude: /node_modules/,
-			loader: 'babel-loader'
+			use: {
+				loader: 'babel-loader',
+				options: {
+					presets: ['@babel/preset-env']
+				}
+			}
 		},
 		{
 			test: /\.css$/,
 			exclude: /node_modules/,
-			use: ['styles-loader','css-loader']
+			use: ['style-loader', 'css-loader']
 		},
 		{
 			test: /\.scss$/,
 			exclude: /node_modules/,
-			use: [{
-				loader: 'sass-loader',
-				options: {
-					implementation: require('sass'),
-					sassOptions: {
-						fiber: require('fibers'),
-					},
+			use: [
+				{
+					loader: 'file-loader',
+					options: {
+						name: 'css/[name].css',
+					}
 				},
-			},
-
+				{
+					loader: 'extract-loader'
+				},
+				{
+					loader: 'css-loader?-url'
+				},
+				{
+					loader: 'postcss-loader'
+				},
+				{
+					loader: 'sass-loader'
+				}
 			],
 		},
 		]
