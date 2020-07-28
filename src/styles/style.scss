@@ -44,6 +44,7 @@ $card-size: 150px;
 
 /* back, initially hidden pane */
 .picture {
+    @include transite;
     transform: rotateY(180deg);
 }
 
