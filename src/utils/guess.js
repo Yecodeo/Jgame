@@ -12,12 +12,15 @@ const types = [
  */
 class Guess {
 	/**
-	 * Constructor
+	 * create new game
+	 * @param {ClassName} selector
+	 * @param {Number} nbCard
 	 */
-	constructor() {
-		this.arrayFruits = fruits.slice(0, 14); // pic up only 14 unique elements
+	constructor(selector, nbCard = 14) {
+		// pic up only n unique elements
+		this.arrayFruits = fruits.slice(0, nbCard);
 		this.cards = this.arrayFruits.concat([...this.arrayFruits]);
-		this.platform = document.querySelector('.platform');
+		this.platform = document.querySelector(selector);
 		this.guess = [];
 	}
 
@@ -28,24 +31,30 @@ class Guess {
 		if (this.flip) {
 			for (const o of this.flip) {
 				o.addEventListener('click', (event) => {
-					event.target.children[0].classList.add('rotate');
-					this.stack(event.target.children[0]);
+					event.target.children[0]?.classList.add('rotate');
+					this.stack(event.target.children[0], event);
 				});
 			}
 		}
 	}
+
 	/**
-	 * manager selected card
-	 * @param {DOMNode} ob
+	 * 
+	 * @param {*} ob 
+	 * @param {*} e 
 	 */
-	stack(ob) {
+	stack(ob, e) {
 		if (this.guess.length == 2) {
 			this.guess = [];
-			this.guess.push(ob);
-		} else {
-			this.guess.push(ob);
-			types.forEach((type) => event.target.children[0].addEventListener(type, this.check()));
 		}
+		this.guess.push(ob);
+		const self = this;
+
+		e.target.children[0]?.addEventListener('transitionend', function(tEvent) {
+			if (self.guess.length == 2) {
+				self.check();
+			}
+		});
 	}
 
 	/**
@@ -67,19 +76,23 @@ class Guess {
 	 * check the selected
 	 */
 	check() {
-		// check if two cards are selected
-		if (this.guess.length === 2) {
-			// then check if are the same
+		console.log(this);
+		// 	// then check if are not the same
+		const bashStyle = (style, cammand) => {
 			for (const value in this.guess) {
 				// check if key exists
 				if (Object.prototype.hasOwnProperty.call(this.guess, value)) {
-					this.guess[value].remove('rotate');
+					this.guess[value]?.classList?.[cammand](style);
 				}
 			}
+		};
 
-			// this.guess?.one.classList.remove('rotate');
-			// this.guess?.two.classList.remove('rotate');
-			this.guess = {};
+		if (this.guess[0]?.classList?.value !== this.guess[1]?.classList?.value) {
+			bashStyle('rotate', 'remove');
+			this.guess = [];
+		} else {
+			bashStyle('found', 'add');
+			this.guess = [];
 		}
 	}
 }
