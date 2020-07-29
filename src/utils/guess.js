@@ -12,7 +12,7 @@ const types = [
  */
 class Guess {
 	/**
-	 * create new game
+	 * initialize the game
 	 * @param {ClassName} selector
 	 * @param {Number} nbCard
 	 */
@@ -39,9 +39,9 @@ class Guess {
 	}
 
 	/**
-	 * 
-	 * @param {*} ob 
-	 * @param {*} e 
+	 * handle stack of cards
+	 * @param {*} ob
+	 * @param {*} e
 	 */
 	stack(ob, e) {
 		if (this.guess.length == 2) {
@@ -76,7 +76,6 @@ class Guess {
 	 * check the selected
 	 */
 	check() {
-		console.log(this);
 		// 	// then check if are not the same
 		const bashStyle = (style, cammand) => {
 			for (const value in this.guess) {
