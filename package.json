@@ -26,6 +26,9 @@
     "url": "https://github.com/Yecodeo/Jgame/issues"
   },
   "homepage": "https://github.com/Yecodeo/Jgame#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/plugin-transform-spread": "^7.10.4",
