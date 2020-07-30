@@ -86,8 +86,8 @@ class Guess {
 	check() {
 		/**
 		 * add or remove className
-		 * @param {*} style 
-		 * @param {*} cammand 
+		 * @param {*} style
+		 * @param {*} cammand
 		 */
 		const bashStyle = (style, cammand) => {
 			for (const value in this.guess) {
