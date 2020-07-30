@@ -3,7 +3,8 @@ import './styles/fruits.scss';
 import './styles/style.scss';
 import './images/cards.png';
 
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', () => {
 	const game = new Guess('.platform', 14);
 	game.deal();
 });
+

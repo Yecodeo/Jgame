@@ -2,11 +2,6 @@ import shuffle from 'utils/shuffle';
 import fruits from 'utils/fruits';
 import card from 'utils/template';
 
-const types = [
-	'webkitTransitionEnd', 'otransitionend',
-	'oTransitionEnd', 'msTransitionEnd', 'transitionend',
-];
-
 /**
  * no parameters
  */
@@ -31,8 +26,19 @@ class Guess {
 		if (this.flip) {
 			for (const o of this.flip) {
 				o.addEventListener('click', (event) => {
-					event.target.children[0]?.classList.add('rotate');
-					this.stack(event.target.children[0], event);
+					new Promise((resolve, reject) => {
+						try {
+							// prevent clicking on multiple cards max 2
+							this.platform.classList.add('disable');
+							// show selected card
+							event.target.children[0]?.classList.add('rotate');
+							// add it to stack
+							this.stack(event.target.children[0], event);
+							resolve();
+						} catch (err) {
+							reject(err);
+						}
+					});
 				});
 			}
 		}
@@ -49,11 +55,13 @@ class Guess {
 		}
 		this.guess.push(ob);
 		const self = this;
-
+		/** trigger check function after transition take ends */
 		e.target.children[0]?.addEventListener('transitionend', function(tEvent) {
 			if (self.guess.length == 2) {
 				self.check();
 			}
+			// transition and check done, unlock the click again
+			self.platform.classList.remove('disable');
 		});
 	}
 
@@ -76,7 +84,11 @@ class Guess {
 	 * check the selected
 	 */
 	check() {
-		// 	// then check if are not the same
+		/**
+		 * add or remove className
+		 * @param {*} style 
+		 * @param {*} cammand 
+		 */
 		const bashStyle = (style, cammand) => {
 			for (const value in this.guess) {
 				// check if key exists
@@ -86,11 +98,15 @@ class Guess {
 			}
 		};
 
+		/** if pair match keep them shown and unclickable */
 		if (this.guess[0]?.classList?.value !== this.guess[1]?.classList?.value) {
 			bashStyle('rotate', 'remove');
 			this.guess = [];
 		} else {
+			// keep cards returned and disable click on them
 			bashStyle('found', 'add');
+			this.guess[0]?.closest('.flip')?.classList.add('disable');
+			this.guess[1]?.closest('.flip')?.classList.add('disable');
 			this.guess = [];
 		}
 	}
