@@ -1,6 +1,6 @@
 /* eslint no-undef: "off"*/
 
-const path = require('path');
+import path from 'path';
 
 module.exports = {
 	entry: './src/index.js',
