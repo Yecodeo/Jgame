@@ -3,7 +3,8 @@ $class: 'red_apple', 'banana', 'orange', 'green_lemon', 'grenadian', 'peach', 'y
 $position: 0
 
 @each $cls in $class
-  $position: $position + 150;
+  $position: $position + 150
+
   .#{$cls}
     background-position: 0 px #{$position} px
     background-size: 100 %
