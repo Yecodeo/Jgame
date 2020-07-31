@@ -1,3 +1,5 @@
+/*eslint no-undef: "off"*/
+
 const path = require('path');
 
 module.exports = {
