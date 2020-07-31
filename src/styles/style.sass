@@ -1,0 +1,57 @@
+$transition: all .5s ease
+$bg-color: #dddcff
+$card-size: 150 px
+
+$hidden: #aaa
+$hidden-hover: #bfbcbc
+
+@mixin transite
+transition: $transition
+transform-style:    preserve-3d
+
+
+.carte
+  position: relative
+
+.platform
+  background-color: $bg-color
+
+.hiddens,
+.picture
+  backface-visibility: hidden
+  left: 0
+  position: absolute
+  top: 0
+
+// front pane, placed above back
+.hiddens
+  background-color: $hidden
+
+  &:hover
+    background-color: $hidden-hover
+    cursor: pointer
+
+
+//  back, initially hidden pane
+.picture
+  @include transite
+    background-image: url('../images/cards.png')
+    transform: rotateY(180deg)
+
+.rotate
+  @include transite
+  transform: rotateY(0deg)
+
+.found
+  pointer-events: none
+  transform: rotateY(0deg)
+
+.flip,
+.hiddens,
+.picture
+  height: $card-size
+  width: $card-size
+
+
+.disable
+  pointer-events: none
