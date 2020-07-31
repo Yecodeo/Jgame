@@ -87,11 +87,11 @@ class Guess {
 	check() {
 		/** if pair match keep them shown and unclickable */
 		if (this.guess[0]?.classList?.value !== this.guess[1]?.classList?.value) {
-			stylish('rotate', 'remove');
+			stylish(this.guess, 'rotate', 'remove');
 			this.guess = [];
 		} else {
 			// keep cards returned and disable click on them
-			stylish('found', 'add');
+			stylish(this.guess, 'found', 'add');
 			this.guess[0]?.closest('.flip')?.classList.add('disable');
 			this.guess[1]?.closest('.flip')?.classList.add('disable');
 			this.guess = [];

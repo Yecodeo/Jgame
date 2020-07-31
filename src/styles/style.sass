@@ -13,23 +13,17 @@ $hidden-hover: #bfbcbc
 .carte
   position: relative
 
-.platform
-  background-color: $bg-color
-
 .hiddens,
 .picture
   backface-visibility: hidden
   left: 0
   position: absolute
   top: 0
-  background-image: url('../images/face.png')
 
 // front pane, placed above back
 .hiddens
-  background-color: $hidden
-
+  background-image: url('../images/face.png')
   &:hover
-    background-color: $hidden-hover
     cursor: pointer
 
 
