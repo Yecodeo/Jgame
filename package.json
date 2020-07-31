@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.babel.js",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "@babel/core": "^7.10.5",
     "@babel/plugin-transform-spread": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
     "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",

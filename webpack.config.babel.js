@@ -1,5 +1,4 @@
 /* eslint no-undef: "off"*/
-
 import path from 'path';
 
 module.exports = {
@@ -26,7 +25,7 @@ module.exports = {
 			use: ['style-loader', 'css-loader'],
 		},
 		{
-			test: /\.scss$/,
+			test: /\.sass$/,
 			exclude: /node_modules/,
 			use: [
 				{

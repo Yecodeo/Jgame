@@ -1,7 +1,7 @@
 import shuffle from 'utils/shuffle';
 import fruits from 'utils/fruits';
 import card from 'utils/template';
-
+import stylish from 'utils/stylish';
 /**
  * no parameters
  */
@@ -17,6 +17,7 @@ class Guess {
 		this.cards = this.arrayFruits.concat([...this.arrayFruits]);
 		this.platform = document.querySelector(selector);
 		this.guess = [];
+		this.scoor = 0;
 	}
 
 	/**
@@ -84,31 +85,18 @@ class Guess {
 	 * check the selected
 	 */
 	check() {
-		/**
-		 * add or remove className
-		 * @param {*} style
-		 * @param {*} cammand
-		 */
-		const bashStyle = (style, cammand) => {
-			for (const value in this.guess) {
-				// check if key exists
-				if (Object.prototype.hasOwnProperty.call(this.guess, value)) {
-					this.guess[value]?.classList?.[cammand](style);
-				}
-			}
-		};
-
 		/** if pair match keep them shown and unclickable */
 		if (this.guess[0]?.classList?.value !== this.guess[1]?.classList?.value) {
-			bashStyle('rotate', 'remove');
+			stylish('rotate', 'remove');
 			this.guess = [];
 		} else {
 			// keep cards returned and disable click on them
-			bashStyle('found', 'add');
+			stylish('found', 'add');
 			this.guess[0]?.closest('.flip')?.classList.add('disable');
 			this.guess[1]?.closest('.flip')?.classList.add('disable');
 			this.guess = [];
 		}
+		this.scoor += 1;
 	}
 }
 export default Guess;
