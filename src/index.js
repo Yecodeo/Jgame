@@ -1,6 +1,6 @@
 import Guess from 'utils/guess.js';
-import './styles/fruits.scss';
-import './styles/style.scss';
+import './styles/fruits.sass';
+import './styles/style.sass';
 import './images/cards.png';
 
 document.addEventListener('DOMContentLoaded', () => {

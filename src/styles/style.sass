@@ -1,13 +1,13 @@
 $transition: all .5s ease
 $bg-color: #dddcff
-$card-size: 150 px
+$card-size: 150px
 
 $hidden: #aaa
 $hidden-hover: #bfbcbc
 
 @mixin transite
-transition: $transition
-transform-style:    preserve-3d
+  transition: $transition
+  transform-style: preserve-3d
 
 
 .carte
@@ -35,8 +35,8 @@ transform-style:    preserve-3d
 //  back, initially hidden pane
 .picture
   @include transite
-    background-image: url('../images/cards.png')
-    transform: rotateY(180deg)
+  background-image: url('../images/cards.png')
+  transform: rotateY(180deg)
 
 .rotate
   @include transite
