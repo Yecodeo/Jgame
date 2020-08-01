@@ -28,13 +28,14 @@ class Guess {
 			for (const o of this.flip) {
 				o.addEventListener('click', (event) => {
 					new Promise((resolve, reject) => {
+						const el = event.target;
 						try {
 							// prevent clicking on multiple cards max 2
 							this.platform.classList.add('disable');
 							// show selected card
-							event.target.children[0]?.classList.add('rotate');
+							el.children[0]?.classList.add('rotate');
 							// add it to stack
-							this.stack(event.target.children[0], event);
+							this.stack(el.children[0], event);
 							resolve();
 						} catch (err) {
 							reject(err);

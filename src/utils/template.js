@@ -4,8 +4,8 @@
  * @return {NodeDOM}
  */
 export default function card(props) {
-	const flip = factory('div', ['m-1', 'flip']);
-	const c = factory('div', ['carte']);
+	const flip = factory('div', ['m-3', 'flip']);
+	const c = factory('div', ['carte', 'hvr-grow']);
 	const hidden = factory('div', ['hiddens']);
 	const picture = factory('div', ['picture', props]);
 
