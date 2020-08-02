@@ -5,7 +5,7 @@
  */
 export default function card(props) {
 	const flip = factory('div', ['m-3', 'flip']);
-	const c = factory('div', ['carte', 'hvr-grow']);
+	const c = factory('div', ['carte']);
 	const hidden = factory('div', ['hiddens']);
 	const picture = factory('div', ['picture', props]);
 

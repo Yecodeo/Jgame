@@ -17,7 +17,17 @@ class Guess {
 		this.cards = this.arrayFruits.concat([...this.arrayFruits]);
 		this.platform = document.querySelector(selector);
 		this.guess = [];
-		this.scoor = 0;
+		this.createState = (state) => {
+			return new Proxy(state, {
+				set: function(object, key, value) {
+					object[key] = value;
+					document.querySelector('[data-binding="score"]').innerHTML = state.score
+					return true;
+				},
+			});
+		};
+
+		this.results = this.createState({score: 0});
 	}
 
 	/**
@@ -36,6 +46,7 @@ class Guess {
 							el.children[0]?.classList.add('rotate');
 							// add it to stack
 							this.stack(el.children[0], event);
+							this.results.score += 1;
 							resolve();
 						} catch (err) {
 							reject(err);
@@ -97,7 +108,6 @@ class Guess {
 			this.guess[1]?.closest('.flip')?.classList.add('disable');
 			this.guess = [];
 		}
-		this.scoor += 1;
 	}
 }
 export default Guess;

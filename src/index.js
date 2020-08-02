@@ -6,7 +6,7 @@ import './images/face.png';
 import 'hover.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-	const game = new Guess('.platform', 14);
+	const game = new Guess('.platform', 12);
 	game.deal();
 });
 
