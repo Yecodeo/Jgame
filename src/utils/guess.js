@@ -2,6 +2,8 @@ import shuffle from 'utils/shuffle';
 import fruits from 'utils/fruits';
 import card from 'utils/template';
 import stylish from 'utils/stylish';
+import Swal from 'sweetalert2'
+
 /**
  * no parameters
  */
@@ -17,7 +19,7 @@ class Guess {
 		this.cards = this.arrayFruits.concat([...this.arrayFruits]);
 		this.platform = document.querySelector(selector);
 		this.guess = [];
-		this.results = this.createState({score: 0});
+		this.state = this.createState({score: 0, guessed: 0, history: {}});
 	}
 	/**
 	 * bind data to view
@@ -26,12 +28,27 @@ class Guess {
 	 */
 	createState(state) {
 		return new Proxy(state, {
-			set: function(object, key, value) {
+			set: (object, key, value) => {
 				object[key] = value;
-				document.querySelector('[data-binding="score"]').innerHTML = state.score;
+				this.render();
 				return true;
 			},
 		});
+	}
+	/**
+	 * render element or update state
+	 */
+	render() {
+		document.querySelector('[data-binding="score"]').innerHTML = this.state.score;
+		if (this.state.guessed === 14) {
+			Swal.fire({
+				icon: 'success',
+				title: 'Bien joué',
+				showConfirmButton: true,
+				timer: 1500,
+			});
+		}
+		console.log(this.state);
 	}
 	/**
 	 * bind click event to cards
@@ -49,7 +66,7 @@ class Guess {
 							el.children[0]?.classList.add('rotate');
 							// add it to stack
 							this.stack(el.children[0], event);
-							this.results.score += 1;
+							this.state.score += 1;
 							resolve();
 						} catch (err) {
 							reject(err);
@@ -112,6 +129,7 @@ class Guess {
 				el?.closest('.flip')?.classList.add('disable');
 			});
 			this.guess = [];
+			this.state.guessed += 1;
 		}
 	}
 }
