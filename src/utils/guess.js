@@ -17,19 +17,22 @@ class Guess {
 		this.cards = this.arrayFruits.concat([...this.arrayFruits]);
 		this.platform = document.querySelector(selector);
 		this.guess = [];
-		this.createState = (state) => {
-			return new Proxy(state, {
-				set: function(object, key, value) {
-					object[key] = value;
-					document.querySelector('[data-binding="score"]').innerHTML = state.score;
-					return true;
-				},
-			});
-		};
-
 		this.results = this.createState({score: 0});
 	}
-
+	/**
+	 * bind data to view
+	 * @param {Object} state
+	 * @return {Object}
+	 */
+	createState(state) {
+		return new Proxy(state, {
+			set: function(object, key, value) {
+				object[key] = value;
+				document.querySelector('[data-binding="score"]').innerHTML = state.score;
+				return true;
+			},
+		});
+	}
 	/**
 	 * bind click event to cards
 	 */
@@ -63,6 +66,7 @@ class Guess {
 	 * @param {*} e
 	 */
 	stack(ob, e) {
+		// if array length is two cards then wipe it
 		if (this.guess.length == 2) {
 			this.guess = [];
 		}
@@ -104,8 +108,9 @@ class Guess {
 		} else {
 			// keep cards returned and disable click on them
 			stylish(this.guess, 'found', 'add');
-			this.guess[0]?.closest('.flip')?.classList.add('disable');
-			this.guess[1]?.closest('.flip')?.classList.add('disable');
+			Array.prototype.forEach.call(this.guess, (el) => {
+				el?.closest('.flip')?.classList.add('disable');
+			});
 			this.guess = [];
 		}
 	}
