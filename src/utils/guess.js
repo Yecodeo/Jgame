@@ -21,7 +21,7 @@ class Guess {
 			return new Proxy(state, {
 				set: function(object, key, value) {
 					object[key] = value;
-					document.querySelector('[data-binding="score"]').innerHTML = state.score
+					document.querySelector('[data-binding="score"]').innerHTML = state.score;
 					return true;
 				},
 			});
