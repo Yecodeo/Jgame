@@ -1,5 +1,4 @@
 {
-  "presets": ["@babel/preset-env"],
   "plugins": [
     ["module-resolver", {
       "root": ["./src"],
@@ -12,6 +11,20 @@
       {
         "loose": true
       }
-    ]
-  ]
+    ],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["@babel/plugin-proposal-private-methods", { "loose": true }],
+  ],
+  "presets": [
+    ["@babel/preset-env", {
+        "useBuiltIns": "usage",
+        "corejs": "3",
+        "targets": {
+            "browsers": [
+                "last 5 versions",
+                "ie >= 8"
+            ]
+        }
+    }]
+]
 }

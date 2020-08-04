@@ -3,10 +3,11 @@
  */
 class Queue {
 	/**
-	 * Constructor
+	 * 
+	 * @param {*} limit
 	 */
-	constructor() {
-		this.data = [];
+	constructor(limit = 4) {
+		this.data =  this.#getAll() || [];
 	}
 	/**
 	 * add to queue
@@ -21,6 +22,26 @@ class Queue {
 	 */
 	remove(r) {
 		this.data.pop(r);
+	}
+	/**
+	 * 
+	 */
+	#getAll() {
+		return  window.localStorage.getItem('history');
+	}
+
+	/**
+	 * @return {Array}
+	 */
+	getStoredItems() {
+		return this.data;
+	}
+	/**
+	 * set data
+	 * @param {Array} value
+	 */
+	setStoredItems(value) {
+		this.data = value;
 	}
 }
 

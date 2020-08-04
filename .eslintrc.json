@@ -1,4 +1,6 @@
 {
+    "parser": "@babel/eslint-parser",
+    "presets": ["@babel/preset-env"],
     "env": {
         "browser": true,
         "jquery": true,
