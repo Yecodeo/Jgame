@@ -2,46 +2,59 @@
  * Class handle queue
  */
 class Queue {
+	#data;
+	#limit = 4;
 	/**
-	 * 
+	 * Constructor
 	 * @param {*} limit
 	 */
 	constructor(limit = 4) {
-		this.data =  this.#getAll() || [];
+		this.#data = JSON.parse(window.localStorage.getItem('history')) || [];
+		this.#limit = limit;
 	}
 	/**
 	 * add to queue
 	 * @param {Any} r
+	 * @return {this}
 	 */
 	add(r) {
-		this.data.unshift(r);
+		if (this.#data.length == this.#limit) {
+			this.remove();
+		}
+		this.#data.unshift(r);
+		return this;
 	}
 	/**
 	 * remove element from queue
-	 * @param {Any} r
+	 *  @return {this}
 	 */
-	remove(r) {
-		this.data.pop(r);
-	}
-	/**
-	 * 
-	 */
-	#getAll() {
-		return  window.localStorage.getItem('history');
+	remove() {
+		this.#data.pop();
+		return this;
 	}
 
 	/**
 	 * @return {Array}
 	 */
-	getStoredItems() {
-		return this.data;
+	get() {
+		return this.#data;
 	}
 	/**
 	 * set data
 	 * @param {Array} value
+	 * @return {this}
 	 */
-	setStoredItems(value) {
-		this.data = value;
+	set(value) {
+		this.#data = value;
+		return this;
+	}
+	/**
+	 * save array to local storage
+	 * @return {this}
+	 */
+	save() {
+		window.localStorage.setItem('history', JSON.stringify(this.#data));
+		return this;
 	}
 }
 

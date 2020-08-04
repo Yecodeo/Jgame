@@ -3,7 +3,7 @@ import fruits from 'utils/fruits';
 import card from 'utils/template';
 import stylish from 'utils/stylish';
 import Queue from 'utils/Queue';
-
+import date from 'utils/date';
 /**
  * no parameters
  */
@@ -15,12 +15,18 @@ class Guess {
 	 */
 	constructor(selector, nbCard = 14) {
 		// pic up only n unique elements
+		this.nbCard = nbCard;
 		this.arrayFruits = fruits.slice(0, nbCard);
 		this.cards = this.arrayFruits.concat([...this.arrayFruits]);
 		this.platform = document.querySelector(selector);
 		this.guess = [];
-		this.state = this.createState({score: 0, guessed: 0, history: {}});
-		this.q = new Queue();
+		this.queue = new Queue(4);
+		this.state = this.createState(
+			{
+				score: 0,
+				guessed: 0,
+				history: this.queue.get(),
+			});
 	}
 	/**
 	 * bind data to view
@@ -41,6 +47,14 @@ class Guess {
 	 */
 	render() {
 		document.querySelector('[data-binding="score"]').innerHTML = this.state.score;
+		if (this.state.guessed == this.nbCard) {
+			console.log('win');
+			const score = {
+				date: date(new Date()),
+				score: this.state.score,
+			};
+			this.queue.add(score).save();
+		}
 	}
 	/**
 	 * bind click event to cards

@@ -1,6 +1,4 @@
 {
-    "parser": "@babel/eslint-parser",
-    "presets": ["@babel/preset-env"],
     "env": {
         "browser": true,
         "jquery": true,
@@ -9,8 +7,10 @@
     },
     "extends": ["eslint:recommended", "google"],
     "parserOptions": {
+        "ecmaVersion": 11,
         "sourceType": "module"
     },
+    "parser": "@babel/eslint-parser",
     "rules": {
         "indent": [
             2,
@@ -30,4 +30,6 @@
             "always"
         ]
     }
+    // "presets": ["@babel/preset-env"]
+
 }
