@@ -2,7 +2,7 @@ import shuffle from 'utils/shuffle';
 import fruits from 'utils/fruits';
 import card from 'utils/template';
 import stylish from 'utils/stylish';
-import Swal from 'sweetalert2'
+import Queue from 'utils/Queue';
 
 /**
  * no parameters
@@ -20,6 +20,7 @@ class Guess {
 		this.platform = document.querySelector(selector);
 		this.guess = [];
 		this.state = this.createState({score: 0, guessed: 0, history: {}});
+		this.q = new Queue();
 	}
 	/**
 	 * bind data to view
@@ -40,15 +41,6 @@ class Guess {
 	 */
 	render() {
 		document.querySelector('[data-binding="score"]').innerHTML = this.state.score;
-		if (this.state.guessed === 14) {
-			Swal.fire({
-				icon: 'success',
-				title: 'Bien joué',
-				showConfirmButton: true,
-				timer: 1500,
-			});
-		}
-		console.log(this.state);
 	}
 	/**
 	 * bind click event to cards
@@ -106,7 +98,6 @@ class Guess {
 		this.cards = shuffle(this.cards);
 		for (const key of this.cards) {
 			const carte = card(key);
-
 			if (carte) {
 				this.platform.appendChild(carte);
 			}

@@ -1,4 +1,4 @@
-import Guess from 'utils/guess.js';
+import Guess from 'utils/Guess.js';
 import './styles/fruits.sass';
 import './styles/style.sass';
 import './images/cards.png';
