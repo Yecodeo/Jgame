@@ -9,22 +9,21 @@ $hidden-hover: #bfbcbc
   transition: $transition
   transform-style: preserve-3d
 
-
 .carte
   position: relative
 
 .hiddens,
 .picture
   backface-visibility: hidden
-  left: 0
-  position: absolute
-  top: 0
 
-// front pane, placed above back
 .hiddens
-  background-image: url('../images/face.png')
   &:hover
     cursor: pointer
+    animation: animated-border 1s infinite
+    border: 1px solid #ccc
+    border-radius: 2px
+    overflow: hidden
+
 
 
 //  back, initially hidden pane
@@ -46,9 +45,15 @@ $hidden-hover: #bfbcbc
 .picture
   height: $card-size
   width: $card-size
-
+  background-color: #2d3237
 
 .disable
   pointer-events: none
 
+
+@keyframes animated-border
+  0%
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.4)
+  100%
+     box-shadow: 0 0 0 10px rgba(255,255,255,0)
 
