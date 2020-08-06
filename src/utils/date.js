@@ -1,6 +1,6 @@
 const date = (date) => {
-	const options = {year: 'numeric', month: 'numeric', day: 'numeric',
-		hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true};
+	const options = {year: 'numeric', month: 'long', day: '2-digit',
+		hour: '2-digit', minute: '2-digit', hour12: false};
 	return new Intl.DateTimeFormat('fr-FR', options).format(date || new Date());
 };
 

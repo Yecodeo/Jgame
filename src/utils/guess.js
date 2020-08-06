@@ -1,6 +1,6 @@
 import shuffle from 'utils/shuffle';
 import fruits from 'utils/fruits';
-import card from 'utils/template';
+import {card, scoreItem} from 'utils/template';
 import stylish from 'utils/stylish';
 import Queue from 'utils/Queue';
 import date from 'utils/date';
@@ -27,6 +27,7 @@ class Guess {
 				guessed: 0,
 				history: this.queue.get(),
 			});
+		this.renderHistory();
 	}
 	/**
 	 * bind data to view
@@ -46,7 +47,6 @@ class Guess {
 	 * render element or update state
 	 */
 	render() {
-		document.querySelector('[data-binding="score"]').innerHTML = this.state.score;
 		if (this.state.guessed == this.nbCard) {
 			console.log('win');
 			const score = {
@@ -54,6 +54,17 @@ class Guess {
 				score: this.state.score,
 			};
 			this.queue.add(score).save();
+		}
+	}
+	/**
+	 * Render histoire scores
+	 */
+	renderHistory() {
+		const parent = document.querySelector('.history');
+		for (const iterator of this.state.history) {
+			const elements = scoreItem(iterator.date);
+			parent.append(elements);
+			console.log(elements);
 		}
 	}
 	/**

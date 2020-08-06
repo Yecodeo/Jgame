@@ -3,17 +3,28 @@
  * @param {*} props *
  * @return {NodeDOM}
  */
-export default function card(props) {
+const card = (props) => {
 	const flip = factory('div', ['m-3', 'flip']);
 	const c = factory('div', ['carte']);
 	const hidden = factory('div', ['hiddens']);
 	const picture = factory('div', ['picture', props]);
-
 	hidden.append(picture);
 	c.append(hidden);
 	flip.append(c);
 	return flip;
-}
+};
+
+/**
+ *  return Domnode
+ * @param {*} value 
+ * @return {DOMNode}
+ */
+const scoreItem = (value) => {
+	const alert = factory('div', ['alert', 'alert-success']);
+	alert.setAttribute('rol', 'alert');
+	alert.innerHTML = value;
+	return alert;
+};
 
 /**
  * create element and it class name
@@ -30,3 +41,5 @@ function factory(type, className = []) {
 		return el;
 	}
 }
+
+export {card, scoreItem};
