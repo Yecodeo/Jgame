@@ -62,9 +62,8 @@ class Guess {
 	renderHistory() {
 		const parent = document.querySelector('.history');
 		for (const iterator of this.state.history) {
-			const elements = scoreItem(iterator.date);
+			const elements = scoreItem(iterator);
 			parent.append(elements);
-			console.log(elements);
 		}
 	}
 	/**
