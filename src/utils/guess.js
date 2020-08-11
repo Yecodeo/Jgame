@@ -119,6 +119,7 @@ class Guess {
 	 * card dealer
 	 */
 	deal() {
+		this.#empty();
 		this.cards = shuffle(this.cards);
 		for (const key of this.cards) {
 			const carte = card(key);
@@ -146,6 +147,20 @@ class Guess {
 			this.guess = [];
 			this.state.guessed += 1;
 		}
+	}
+
+	#empty() {
+		// flush all cards
+		while (this.platform.firstChild) {
+			this.platform.removeChild(this.platform.firstChild);
+		}
+		this.guess = [];
+		this.state =
+			{
+				score: 0,
+				guessed: 0,
+				history: this.queue.get(),
+			};
 	}
 }
 export default Guess;

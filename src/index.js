@@ -7,5 +7,10 @@ import './images/face.png';
 document.addEventListener('DOMContentLoaded', () => {
 	const game = new Guess('.platform', 12);
 	game.deal();
+
+	const el = document.querySelector('.new');
+	el.addEventListener('click', () => {
+		game.deal();
+	});
 });
 
