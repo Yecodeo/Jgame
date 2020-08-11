@@ -5,11 +5,12 @@
         "es2020": true,
         "commonjs": true
     },
-    "extends": ["eslint:recommended", "google"],
+    "extends": ["eslint:recommended", "google", "plugin:jest/recommended"],
     "parserOptions": {
         "ecmaVersion": 11,
         "sourceType": "module"
     },
+    "plugins": ["jest"],
     "parser": "@babel/eslint-parser",
     "rules": {
         "indent": [

@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "webpack --presents es2020 --config webpack.config.babel.js",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -54,7 +55,8 @@
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "eslint-plugin-jest": "^23.20.0"
   },
   "dependencies": {
     "sweetalert2": "^9.17.0"
