@@ -9,7 +9,8 @@
   "scripts": {
     "build": "webpack --presents es2020 --config webpack.config.babel.js",
     "watch": "webpack --watch",
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "repository": {
     "type": "git",
