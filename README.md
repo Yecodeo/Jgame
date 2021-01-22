@@ -1,4 +1,5 @@
-# jgame
+Project dans le cadre de ma formation chez O'clock
+# jGame
 🚩 Jeu de carte, retourner deux cartes identique et ceux avec toutes les cartes pour finir la partie.
 🚀🚀🚀🚀🚀🚀
 ## Installation
