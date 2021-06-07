@@ -13,8 +13,12 @@
     "plugins": ["jest"],
     "parser": "@babel/eslint-parser",
     "rules": {
+        "complexity": [
+            "error",
+            10
+        ],
         "indent": [
-            2,
+            "error",
             "tab"
         ],
         "no-tabs": 0,
@@ -30,7 +34,8 @@
             "error",
             "always"
         ]
-    }
-    // "presets": ["@babel/preset-env"]
-
+    },
+    "presets": [
+        "@babel/preset-env"
+    ]
 }
