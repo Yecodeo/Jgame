@@ -34,8 +34,5 @@
             "error",
             "always"
         ]
-    },
-    "presets": [
-        "@babel/preset-env"
-    ]
+    }
 }
