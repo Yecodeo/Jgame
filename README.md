@@ -1,5 +1,8 @@
 Project dans le cadre de ma formation chez O'clock
 # jGame
+
+[![Codeac.io](https://static.codeac.io/badges/2-107200066.svg "Codeac.io")](https://app.codeac.io/github/Yecodeo/Jgame)
+
 🚩 Jeu de carte, retourner deux cartes identique et ceux avec toutes les cartes pour finir la partie.
 🚀🚀🚀🚀🚀🚀
 ## Installation
